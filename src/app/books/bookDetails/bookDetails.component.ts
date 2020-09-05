@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/auth/auth.service';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Book } from "../entities/book";
@@ -15,7 +16,8 @@ export class BookDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router:Router,
-    private readonly booksService: BooksService
+    private readonly booksService: BooksService,
+    private readonly authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -44,5 +46,11 @@ export class BookDetailsComponent implements OnInit {
     this.booksService.deleteBook(book.bookId).subscribe(result=>{
       this.router.navigate(['/books']);
     });
+  }
+  get isAdmin(): boolean{
+    return this.authService.getRole=="Admin"
+  }
+  get isauth(): boolean{
+      return this.authService.isAuthenticated()
   }
 }

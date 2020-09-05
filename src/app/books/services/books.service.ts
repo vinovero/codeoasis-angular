@@ -35,8 +35,8 @@ export class BooksService {
       ))
   }
 
-  getLastPurchased(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}book/purchased`);
+  getLastPurchased(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${environment.baseUrl}book/purchased`);
   }
 
   getBookByTitle(searchTerm: string): Observable<Book[]> {

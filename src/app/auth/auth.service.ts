@@ -30,8 +30,14 @@ export class AuthService {
      
       return false;
     }
+    get getRole(): string{
+      return localStorage.getItem('role');
+    }
+    get getName(): string{
+      return localStorage.getItem('name');
+    }
   //readonly baseUrl: string = "http://localhost:54278";
-  login(userName: string, password: string): Observable<boolean> {
+  login(userName: string, password: string): Observable<UserLogin> {
     return this.httpClient.post<UserLogin>(`${environment.baseUrl}login`,
       {UserName: userName, Password: password}).pipe(      
         map(user => {
@@ -40,9 +46,10 @@ export class AuthService {
             console.log(user);
             localStorage.setItem('token', user.token);
             localStorage.setItem('role', user.role);
-            return true;
+            localStorage.setItem('name', user.userName);
+            return user;
           }
-          return false;
+          return null;
         })
       )
    

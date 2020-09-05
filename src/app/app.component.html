@@ -1,9 +1,12 @@
 
 <a mat-raised-button routerLink="/books" routerLinkActive="active">Home</a>
-<a mat-raised-button routerLink="/login" routerLinkActive="active">Logon</a>
-<a mat-raised-button routerLink="/books-add" routerLinkActive="active">Add new book</a>
+<a mat-raised-button routerLink="/login" routerLinkActive="active">{{isLogon ? "Logout": "Login"}}</a>
+<a mat-raised-button routerLink="/books-add" routerLinkActive="active"
+*ngIf="role=='Admin'">Add new book</a>
 <button (click)="LastPurchased()" mat-raised-button>Last purchased</button>
 
+<p class="h4 mb-4" *ngIf="isLogon" >{{userName }}</p>
+<p class="h4 mb-4" *ngIf="isLogon" >{{role }}</p>
 
 <router-outlet>
 </router-outlet>

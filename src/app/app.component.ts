@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { Router } from '@angular/router';
 import { BooksService } from './books/services/books.service';
 import { Component } from '@angular/core';
@@ -10,13 +11,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-codeoasis';
-  constructor(private booksService: BooksService, private router: Router){}
+ //  var isLogon: boolean;
+
+  constructor(private booksService: BooksService, 
+    private router: Router,
+    private auth: AuthService,
+    ){}
 
   LastPurchased() {
-    this.booksService.getLastPurchased().subscribe((book) => {
-      if(book.bookId)
-        this.router.navigate(["/books", book.bookId]);
+        this.router.navigate(["/purchased-books"])
     
-    });
-  }
+    }
+   get isLogon():Boolean{
+    return this.auth.getRole ? true : false
+   }
+   get userName(): string{
+     return this.auth.getName
+   }
+   get role():string{
+    return this.auth.getRole
+   }
+ 
 }

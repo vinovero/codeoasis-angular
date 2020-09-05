@@ -35,12 +35,12 @@ const routes: Routes = [
         canActivate: [PurchaseBookRouteGuard],
         data: { roles: ['Admin']}
       },
-      /*
+      
       {
         path: "purchased-books",
-        component: PurchasedBooksComponent,
+        component: BooksComponent,
       },
-      */
+      
     { path: "", redirectTo: "/books", pathMatch: "full" },
   ];
   

@@ -26,11 +26,22 @@ export class BooksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.booksService.getBooks().subscribe((books) => {
+    
+    if(this.router.url.includes("purchased-books"))
+    {
+       this.booksService.getLastPurchased().subscribe(books=>{
+        this.books = books
+       })
+    }
+    else
+    {
+      this.booksService.getBooks().subscribe((books) => {
       console.log(books);
       this.books = books;
+      
     
     });
+  }
 
     this.searchBooksControl.valueChanges
       .pipe(

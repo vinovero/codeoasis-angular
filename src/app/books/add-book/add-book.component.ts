@@ -82,6 +82,9 @@ export class AddBookComponent implements OnInit {
 
     
   }
+  isLogon():Boolean{
+    return true;
+}
 
    
   }
