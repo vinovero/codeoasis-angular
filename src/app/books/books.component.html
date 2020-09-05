@@ -1,0 +1,34 @@
+<form class="books-search-form">
+  <mat-form-field class="full-width">
+    <mat-label>Search books</mat-label>
+    <input
+      matInput
+      [formControl]="searchBooksControl"
+      placeholder="Ex. The devine comedy"
+    />
+  </mat-form-field>
+ 
+</form>
+
+<div class="books">
+  <mat-card class="example-card" *ngFor="let book of books">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+      <mat-card-subtitle>{{ book?.author }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <h4>Publisher: {{ book?.publisher }}</h4>
+      <h4>Year: {{ book?.year }}</h4>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="bookDetails(book)" mat-button>Details</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

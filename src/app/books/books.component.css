@@ -1,0 +1,30 @@
+:host {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.books-search-form {
+  margin-top: 20px;
+
+  width: 300px;
+}
+
+mat-form-field.full-width {
+  width: 100%;
+}
+
+.example-card {
+  max-width: 300px;
+  margin:5px;
+}
+
+.books{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

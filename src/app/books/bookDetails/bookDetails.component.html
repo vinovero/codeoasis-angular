@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ book?.title }}</mat-card-title>
+    <mat-card-subtitle>{{ book?.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <h4>Publisher:{{ book?.publisher }}</h4>
+    <h4>Year:{{ book?.year }}</h4>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="buyBook(book)" mat-button>Buy</button>
+    <button (click)="editAddBook(book)" mat-button>Edit</button>
+    <button (click)="deleteBook(book)" mat-button>Delete</button>
+  </mat-card-actions>
+</mat-card>
