@@ -3,3 +3,16 @@
   margin: 0 auto;
   height: 100%;
 }
+.button-row {
+  display: table-cell;
+  padding-left: 50px;
+  width: 100%;
+}
+.button-row p{
+  padding-left: 20px;
+  float: right;
+}
+.p-row{
+  display: table-cell;
+  
+}
